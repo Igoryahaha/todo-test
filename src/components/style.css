@@ -1,0 +1,21 @@
+h1 {
+    color: #27aedb;
+    text-align: center;
+}
+
+.wrapper {
+    padding-top: 5rem;
+    margin: 0 auto;
+    width: 600px;
+}
+
+.rm {
+    background: red;
+    border-radius: 50%;
+    color: #fff;
+    border: none;
+}
+
+.done {
+    text-decoration: line-through;
+}
