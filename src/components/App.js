@@ -1,16 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import TodoList from './Todo/TodoList';
 import Context from './context';
-// import Loader from './Loader'
 import Modal from './Modal/Modal';
 import get from 'lodash.get';
 import set from 'lodash.set';
-import AddTodo from './Todo/AddTodo';
 
 import './style.css';
 
 const App = () => {
-    const [todos, setTodos] = React.useState([
+    const [todos, setTodos] = useState([
         {
             title: 'Test',
             id: 666,
@@ -70,9 +68,10 @@ const App = () => {
         }
     ]);
 
-    const toggleTodo = (id, parents = '', completed = false) => {
-        editElement(parents, (todos) =>
-            todos.map((todo, index) => {
+    const toggleTodo = (id, parents = '', parentCompleted = false) => {
+        editElement(parents, (todos) => {
+            const formattedTodos = [...todos];
+            todos.forEach((todo, index) => {
                 if (todo.id === id) {
                     todo.completed = !todo.completed;
                     toggleTodo(
@@ -80,20 +79,24 @@ const App = () => {
                         `${parents}[${index}].children`,
                         todo.completed
                     );
+                    todo.completed
+                        ? formattedTodos.push(todo) &&
+                          formattedTodos.splice(index, 1)
+                        : (formattedTodos[index] = todo);
                 }
 
                 if (!id) {
-                    todo.completed = completed;
+                    todo.completed = parentCompleted;
                     toggleTodo(
                         null,
                         `${parents}[${index}].children`,
-                        completed
+                        parentCompleted
                     );
+                    formattedTodos[index] = todo;
                 }
-
-                return todo;
-            })
-        );
+            });
+            return formattedTodos;
+        });
     };
 
     const removeTodo = (id, parents = '') => {
@@ -124,7 +127,7 @@ const App = () => {
     return (
         <Context.Provider value={{ removeTodo, toggleTodo }}>
             <div className="wrapper">
-                <h1>Todo-list</h1>
+                <h1>Todo List</h1>
                 <Modal addTodo={addTodo} />
                 {todos.length ? <TodoList todos={todos} /> : <p>No todos!</p>}
             </div>

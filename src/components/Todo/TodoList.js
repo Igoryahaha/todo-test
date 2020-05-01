@@ -27,7 +27,6 @@ const TodoList = ({ onToggle, todos, isSub, parents = '' }) => {
                                   todo={todo}
                                   index={index}
                                   parents={parents}
-                                  //   onChange={onToggle(parents)}
                               />
                               <TodoList
                                   onToggle={onToggle}
