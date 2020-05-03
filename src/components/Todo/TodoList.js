@@ -5,13 +5,13 @@ import TodoItem from './TodoItem';
 const styles = {
     ul: {
         listStyle: 'none',
-        margin: 0,
+        margin: '1rem 0',
         padding: 0
     },
     subUl: {
         listStyle: 'none',
         margin: 0,
-        marginLeft: 15,
+        marginLeft: '1rem',
         padding: 0
     }
 };

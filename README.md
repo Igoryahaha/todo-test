@@ -1,2 +1,5 @@
 # todo-test
-Test task
+
+For start:
+npm i
+npm start

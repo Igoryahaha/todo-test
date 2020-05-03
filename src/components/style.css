@@ -9,10 +9,17 @@ h1 {
     width: 600px;
 }
 
+.empty-list {
+    text-align: center;
+    padding-top: 5rem;
+}
+
 .rm {
-    background: red;
-    border-radius: 50%;
-    color: #fff;
+    color: #27aedb;
+    background: white;
+    text-decoration: underline;
+    font-size: 0.9em;
+    font-style: italic;
     border: none;
 }
 
