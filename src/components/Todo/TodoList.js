@@ -11,7 +11,7 @@ const styles = {
     subUl: {
         listStyle: 'none',
         margin: 0,
-        marginLeft: '1rem',
+        marginLeft: '1.5rem',
         padding: 0
     }
 };
