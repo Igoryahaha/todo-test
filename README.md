@@ -4,4 +4,6 @@ For start:
 
 npm i
 
-npm start
+npm start.
+
+Or use build in /dist
