@@ -16,6 +16,7 @@ const App = () => {
             const formattedTodos = [...todos];
             todos.forEach((todo, index) => {
                 if (todo.id === id) {
+                    // sadasd
                     todo.completed = !todo.completed;
                     toggleTodo(
                         null,
